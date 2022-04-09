@@ -155,26 +155,7 @@ function update() {
 }
 
 function fill_polygon() {
-  let count;
-  let candidates;
-  canva_pixels.forEach((row, x) => {
-    count = 0;
-    candidates = [];
-    row.forEach((pixel, y) => {
-      if (count === 1) {
-        candidates.push(new Point(x, y));
-      } else if (count === 2) {
-        candidates.forEach(({ x, y }) => {
-          canva_pixels[x][y] = 1;
-        });
-        candidates = [];
-        count = 0;
-      }
-      if (pixel === 1) {
-        count++;
-      }
-    });
-  });
+  // função de preencher o poligono
 }
 
 function setup() {
