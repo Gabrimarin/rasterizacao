@@ -1,3 +1,6 @@
+// Esse arquivo lida com a interface do usuário
+// Aqui são instanciados os textos, campos de texto e botões
+
 function draw_text(txt, x, y) {
   text(txt, x, y, 200, 20);
 }
@@ -19,35 +22,35 @@ function draw_input({
 
 function draw_interface() {
   button = createButton("Linha");
-  button.position(canva_place.x, canva_place.y + canva_size + input_height);
+  button.position(display_place.x, display_place.y + display_size + input_height);
   button.mousePressed(() => {
     setState({ modo: "linha" });
   });
-  button.size(canva_size / 2, 80);
+  button.size(display_size / 2, 80);
   button = createButton("Polígono");
   button.position(
-    canva_place.x + canva_size / 2,
-    canva_place.y + canva_size + input_height
+    display_place.x + display_size / 2,
+    display_place.y + display_size + input_height
   );
   button.mousePressed(() => {
     setState({ modo: "poligono" });
   });
-  button.size(canva_size / 2, 80);
+  button.size(display_size / 2, 80);
   const onInputResolution = (v) => {
     setState({ resolution: parseInt(v) });
   };
   draw_input({
     label: "Resolução (max = 400)",
-    x: canva_place.x + canva_size + 10,
-    y: canva_place.y,
+    x: display_place.x + display_size + 10,
+    y: display_place.y,
     callback: onInputResolution,
     initial: state.resolution,
   });
 
   draw_input({
     label: "X1",
-    x: canva_place.x + canva_size + 10,
-    y: canva_place.y + 50,
+    x: display_place.x + display_size + 10,
+    y: display_place.y + 50,
     callback: (v) => {
       setState({
         pontos_linha: {
@@ -64,8 +67,8 @@ function draw_interface() {
   });
   draw_input({
     label: "Y1",
-    x: canva_place.x + canva_size + 50,
-    y: canva_place.y + 50,
+    x: display_place.x + display_size + 50,
+    y: display_place.y + 50,
     callback: (v) => {
       setState({
         pontos_linha: {
@@ -83,8 +86,8 @@ function draw_interface() {
 
   draw_input({
     label: "X2",
-    x: canva_place.x + canva_size + 10,
-    y: canva_place.y + 100,
+    x: display_place.x + display_size + 10,
+    y: display_place.y + 100,
     callback: (v) => {
       setState({
         pontos_linha: {
@@ -101,8 +104,8 @@ function draw_interface() {
   });
   draw_input({
     label: "Y2",
-    x: canva_place.x + canva_size + 50,
-    y: canva_place.y + 100,
+    x: display_place.x + display_size + 50,
+    y: display_place.y + 100,
     callback: (v) => {
       setState({
         pontos_linha: {
